@@ -1,0 +1,65 @@
+
+  
+
+  <div class="property-form-container">
+    <h2>Edit Property</h2>
+    <form [formGroup]="propertyForm" (ngSubmit)="updateProperty()">
+      <div class="form-group">
+        <label for="place">Place</label>
+        <input id="place" type="text" formControlName="place" required>
+      </div>
+      <div class="form-group">
+        <label for="square_area">Square Area</label>
+        <input id="square_area" type="number" formControlName="square_area" required>
+      </div>
+      <div class="form-group">
+        <label for="BHK">BHK</label>
+        <input id="BHK" type="number" formControlName="BHK" required>
+      </div>
+      <div class="form-group">
+        <label for="bathroom">Bathrooms</label>
+        <input id="bathroom" type="number" formControlName="bathroom" required>
+      </div>
+      <div class="form-group">
+        <label for="hospitals_nearby">Hospitals Nearby</label>
+        <input id="hospitals_nearby" type="text" formControlName="hospitals_nearby" required>
+      </div>
+      <div class="form-group">
+        <label for="colleges_nearby">Colleges Nearby</label>
+        <input id="colleges_nearby" type="text" formControlName="colleges_nearby" required>
+      </div>
+      <div class="form-group">
+        <label for="photos">Photos</label>
+        <input id="photos" type="file" (change)="onFileSelected($event)" required>
+      </div>
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input id="price" type="number" formControlName="price" required>
+      </div>
+      <div class="form-group">
+        <label for="furnishing">Furnishing</label>
+        <select id="furnishing" formControlName="furnishing" required>
+          <option value="fully-furnished">Fully-Furnished</option>
+          <option value="semi-furnished">Semi-Furnished</option>
+          <option value="unfurnished">Unfurnished</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="parking">Parking</label>
+        <input id="parking" type="checkbox" formControlName="parking">
+      </div>
+      <div class="form-group" style="display: none;">
+        <label for="owner">Owner</label>
+        <input id="owner" type="number" formControlName="owner" required>
+      </div>
+      <div class="button-container">
+        <button class="btn btn-warning" type="button" (click)="confirmUpdate()">Update</button>
+        <button class="btn btn-danger" type="button" (click)="confirmDelete()">Delete</button>
+      </div>
+      <div *ngIf="errorMessages.length > 0" class="error-message">
+        <ul>
+          <li *ngFor="let errorMessage of errorMessages">{{ errorMessage }}</li>
+        </ul>
+      </div>
+    </form>
+  </div>

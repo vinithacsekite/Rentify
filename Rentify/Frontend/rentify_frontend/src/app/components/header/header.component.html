@@ -1,0 +1,8 @@
+<header class="header">
+  <div class="left">
+    Rentify
+  </div>
+  <div class="right">
+    <button *ngIf="authService.isLoggedIn()" (click)="logout()" class="logout-button">Logout</button>
+  </div>
+</header>

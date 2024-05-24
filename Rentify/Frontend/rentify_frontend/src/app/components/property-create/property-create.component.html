@@ -1,0 +1,95 @@
+<div class="split-container">
+    <!-- Property List -->
+    <div class="property-list">
+        <h2>Property List :</h2>
+        <div *ngFor="let property of properties" class="property-card">
+            <!-- Property Card Content -->
+            <h3>
+                <a [routerLink]="['/properties', property.id]" class="property-link">{{ property.place }}</a>
+            </h3>
+            <p class="property-info">{{ property.BHK }} BHK, {{ property.square_area }} sq ft</p>
+            <p class="property-info">Price: ${{ property.price }}</p>
+            <p class="property-info">Furnishing: {{ property.furnishing }}</p>
+        </div>
+    </div>
+
+    <!-- Create Property Form -->
+    <div class="property-form-container">
+        <h2>Create Property</h2>
+        <form [formGroup]="propertyForm" (ngSubmit)="createProperty()">
+            <div class="form-group">
+                <label for="place">Place</label>
+                <input id="place" type="text" formControlName="place" required>
+                <div *ngIf="propertyForm.get('place')?.hasError('required') && propertyForm.get('place')?.touched" class="error">
+                    Place is required.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="square_area">Square Area</label>
+                <input id="square_area" type="number" formControlName="square_area" required>
+                <div *ngIf="propertyForm.get('square_area')?.hasError('required') && propertyForm.get('square_area')?.touched" class="error">
+                    Square Area is required.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="BHK">BHK</label>
+                <input id="BHK" type="number" formControlName="BHK" required>
+                <div *ngIf="propertyForm.get('BHK')?.hasError('required') && propertyForm.get('BHK')?.touched" class="error">
+                    BHK is required.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="bathroom">Bathrooms</label>
+                <input id="bathroom" type="number" formControlName="bathroom" required>
+                <div *ngIf="propertyForm.get('bathroom')?.hasError('required') && propertyForm.get('bathroom')?.touched" class="error">
+                    Bathrooms is required.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="hospitals_nearby">Hospitals Nearby</label>
+                <input id="hospitals_nearby" type="text">
+                
+            </div>
+            <div class="form-group">
+                <label for="colleges_nearby">Colleges Nearby</label>
+                <input id="colleges_nearby" type="text" >
+                
+            </div>
+            <div class="form-group">
+                <label for="photos">Photos</label>
+                <input id="photos" type="file" accept="image/*">
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input id="price" type="number" formControlName="price" required>
+                <div *ngIf="propertyForm.get('price')?.hasError('required') && propertyForm.get('price')?.touched" class="error">
+                    Price is required.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="furnishing">Furnishing</label>
+                <select id="furnishing" formControlName="furnishing" required>
+                    <option value="fully-furnished">Fully-Furnished</option>
+                    <option value="semi-furnished">Semi-Furnished</option>
+                    <option value="unfurnished">Unfurnished</option>
+                </select>
+                <div *ngIf="propertyForm.get('furnishing')?.hasError('required') && propertyForm.get('furnishing')?.touched" class="error">
+                    Furnishing is required.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="parking">Parking</label>
+                <input id="parking" type="checkbox" formControlName="parking">
+            </div>
+            <!-- <div class="form-group">
+                <label for="owner">Owner</label>
+                <input id="owner" type="number" formControlName="owner" required>
+                <div *ngIf="propertyForm.get('owner')?.hasError('required') && propertyForm.get('owner')?.touched" class="error">
+                    Owner is required.
+                </div>
+            </div> -->
+            <button type="submit" [disabled]="!propertyForm.valid">Create</button>
+        </form>
+        <div *ngIf="message" [ngClass]="messageClass" class="message">{{ message }}</div>
+    </div>
+</div>

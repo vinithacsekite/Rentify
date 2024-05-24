@@ -1,0 +1,18 @@
+<div class="property-detail-container container" *ngIf="property">
+  <h2>{{ property.place }}</h2>
+  <div class="property-info">
+    <img [src]="property.photos" alt="Property Photo">
+    <div class="details">
+      <p>{{ property.BHK }} BHK, {{ property.square_area }} sq ft</p>
+      <p>Bathrooms: {{ property.bathroom }}</p>
+      <p>Nearby Hospitals: {{ property.hospitals_nearby }}</p>
+      <p>Nearby Colleges: {{ property.colleges_nearby }}</p>
+      <p>Price: ${{ property.price }}</p>
+      <p>Furnishing: {{ property.furnishing }}</p>
+      <p>Parking: {{ property.parking ? 'Available' : 'Not Available' }}</p>
+    </div>
+    <div >
+      <button class=" btn btn-danger" *ngIf="isUpdateVisible()" (click)="updateProperty(property.id)">Edit Property</button>
+    </div>
+  </div>
+</div>

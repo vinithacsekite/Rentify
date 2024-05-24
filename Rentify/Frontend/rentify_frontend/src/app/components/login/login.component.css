@@ -1,0 +1,46 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px); 
+    background: linear-gradient(to right, rgba(255, 0, 0, 0.4), rgba(255, 0, 0, 0.4)), url('https://img.freepik.com/premium-photo/there-is-small-house-with-red-roof-red-leaf-generative-ai_1028863-82020.jpg') center/cover no-repeat; 
+  }
+  
+  .login-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+  }
+  
+  .login-text {
+    color: white;
+    width: 50%; 
+  }
+  
+  .card {
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .card p {
+    color: black; 
+    font-size: 16px; 
+  }
+  
+  p{
+    font-size: 20px; 
+  }
+  
+  @media (max-width: 576px) {
+    .login-container {
+      background-position: left center;
+    }
+  
+    .login-text {
+      display: none; 
+    }
+  }
+  

@@ -1,0 +1,66 @@
+.main-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; 
+  height: 100%;
+  /* background-image: url('https://img.freepik.com/premium-photo/there-is-small-house-with-red-roof-red-leaf-generative-ai_1028863-82020.jpg'); */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding: 1%;
+  padding-right:5%;
+  background: linear-gradient(to right, rgba(255, 0, 0, 0.2), rgba(255, 0, 0, 0.4)), url('https://img.freepik.com/premium-photo/there-is-small-house-with-red-roof-red-leaf-generative-ai_1028863-82020.jpg') center/cover no-repeat; 
+}
+
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(237, 227, 227, 0.879); 
+}
+
+.register-container {
+  max-width: 600px;
+  width: 90%;
+  padding: 20px;
+  border-radius: 8px;
+
+  background-color: rgba(255, 244, 244, 0.8); 
+  background-color: white;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input, select {
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #cccccc;
+}

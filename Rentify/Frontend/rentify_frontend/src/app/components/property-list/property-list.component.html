@@ -1,0 +1,46 @@
+<div class="property-list-container">
+  <h2>Available Properties</h2>
+
+  <!-- Filter -->
+  <div class="filter-container">
+    <div class="search-filter">
+      <input type="text" [(ngModel)]="searchTerm" placeholder="Search by place..." class="search-input" />
+      <button class="filter-button" (click)="filterProperties()">Filter</button>
+      <button class="clear-button" (click)="clearFilters()">Clear All</button> 
+    </div>
+  </div>
+   <!-- Furnishing Filter -->
+   <div class="furnishing-filter">
+    <h3>Furnishing</h3>
+    <label>
+      <input type="checkbox" [(ngModel)]="fullyFurnishedChecked" (change)="filterProperties()" /> Fully Furnished
+    </label>
+    <label>
+      <input type="checkbox" [(ngModel)]="semiFurnishedChecked" (change)="filterProperties()" /> Semi Furnished
+    </label>
+    <label>
+      <input type="checkbox" [(ngModel)]="unfurnishedChecked" (change)="filterProperties()" /> Unfurnished
+    </label>
+  </div>
+
+  <!-- Properties List -->
+  <div class="property-list">
+    <div *ngFor="let property of filteredProperties | paginate: { itemsPerPage: pageSize, currentPage: currentPage }" class="property-card">
+      <div class="property-details">
+        <h3>
+          <a [routerLink]="['/properties', property.id]" class="property-link">{{ property.place }}</a>
+        </h3>
+        <p class="property-info">{{ property.BHK }} BHK, {{ property.square_area }} sq ft</p>
+        <p class="property-info">Price: ${{ property.price }}</p>
+        <p class="property-info">Furnishing: {{ property.furnishing }}</p>
+        <button class="interest-button" (click)="markInterested(property.id, property.owner)" [disabled]="loading">I'm Interested</button>
+      </div>
+      <div class="property-image">
+        <img [src]="property.photos" alt="Property Image" onerror="this.src='https://indianewengland.com/wp-content/uploads/2016/04/Home-iage.png'">      </div>
+    </div>
+  </div>
+  <!-- Pagination Controls -->
+  <pagination-controls (pageChange)="pageChanged($event)" class="pagination"></pagination-controls>
+
+ 
+</div>
